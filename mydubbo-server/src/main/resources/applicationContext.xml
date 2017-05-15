@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd  
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd
+        http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-3.0.xsd  
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd  
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!-- 支持@RequestMapping -->
+	<!-- 支持@ResponseBody;将数据自动转成JSON格式字符串给客户端JavaScript返回 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<!-- 将StringHttpMessageConverter的默认编码设为UTF-8 -->
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<constructor-arg value="UTF-8" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!-- 定义JSP文件的位置 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<!-- 启用spring mvc 注解 -->
+	<context:annotation-config />
+
+	<!-- 组件扫描 -->
+	<!-- 这个配置，容器实例化时会自动扫描com.jiannan包及其子包下的所有组件类 -->
+	<!-- 指定扫描路径后，并不是该路径下的所有组件类都扫描到Spring容器中， 只有在组件类定义前面加上注解标记时，才会扫描到Spring容器中 -->
+	<!-- 支持以下注解标记 -->
+	<!-- @Component通用注解 -->
+	<!-- @Repository持久化层组件注解，DAO层 -->
+	<!-- @Service业务层注解 -->
+	<!-- @Controller控制层注解 -->
+	<context:component-scan base-package="cn.wangjiannan" />
+
+	<!-- 加入异步调用 -->
+	<task:annotation-driven />
+
+	<!-- 配置JNDI数据源 在服务器配置相关参数 -->
+	<!-- <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> 
+		<property name="jndiName" value="java:comp/env/jdbc/gdxj_hf" /> </bean> -->
+
+	<context:property-placeholder location="classpath:jdbc.properties"
+		ignore-unresolvable="true" />
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="${driverUrl}" />
+		<property name="username" value="${username}" />
+		<property name="password" value="${password}" />
+		<!--initialSize: 初始化连接 -->
+		<property name="initialSize" value="10" />
+		<!--maxActive: 最大连接数量 -->
+		<property name="maxActive" value="50" />
+		<!--minIdle: 最小空闲连接 -->
+		<property name="minIdle" value="10" />
+		<!--maxIdle: 最大空闲连接 -->
+		<property name="maxIdle" value="20" />
+		<!-- 连接被泄露时是否打印 -->
+		<property name="logAbandoned" value="true" />
+		<!-- removeAbandoned: 是否自动回收超时连接 -->
+		<property name="removeAbandoned" value="true" />
+		<!-- removeAbandonedTimeout: 超时时间(以秒数为单位) -->
+		<property name="removeAbandonedTimeout" value="60" />
+		<!-- maxWait: 超时等待时间以毫秒为单位 1000等于60秒 -->
+		<property name="maxWait" value="10000" />
+		<!-- 在空闲连接回收器线程运行期间休眠的时间值,以毫秒为单位. -->
+		<property name="timeBetweenEvictionRunsMillis" value="30000" />
+		<!-- 在每次空闲连接回收器线程(如果有)运行时检查的连接数量 -->
+		<!-- <property name="numTestsPerEvictionRun" value="${numTestsPerEvictionRun}" 
+			/> -->
+		<!-- 1000 * 60 * 30 连接在池中保持空闲而不被空闲连接回收器线程 -->
+		<property name="minEvictableIdleTimeMillis" value="30000" />
+		<property name="validationQuery" value="SELECT 1" />
+		<!-- 定时对线程池中的链接进行validateObject校验，对无效的链接进行关闭 -->
+		<!-- <property name="testWhileIdle" value="${testWhileIdle}"/> -->
+		<!-- 指定在从连接池中拿连接时，要检查连接是否有效，若无效会将连接从连接池中移除掉 -->
+		<property name="testOnBorrow" value="true" />
+	</bean>
+	<!-- 创建spring jdbcTemplate -->
+	<bean class="org.springframework.jdbc.core.JdbcTemplate" id="jdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<!-- myBatis文件 -->
+	<bean id="SessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations" value="classpath*:sqlMapperXml/*Mapper.xml" />
+	</bean>
+
+	<!-- 事物管理 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<!-- 如果没有它，就会忽略 @Transactional 注释，导致代码不会使用任何事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="cn.wangjiannan.mapper" />
+	</bean>
+
+	<import resource="applicationContext-dubbo-server.xml" />
+
+</beans>  
