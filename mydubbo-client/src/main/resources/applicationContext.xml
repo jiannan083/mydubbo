@@ -107,6 +107,6 @@
 		<property name="basePackage" value="cn.wangjiannan.mapper" />
 	</bean>
 
-	<import resource="applicationContext-dubbo-server.xml" />
+	<import resource="applicationContext-dubbo-client.xml" />
 
 </beans>  
