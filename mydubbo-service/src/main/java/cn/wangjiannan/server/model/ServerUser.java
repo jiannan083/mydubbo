@@ -1,8 +1,8 @@
-package cn.wangjiannan.model;
+package cn.wangjiannan.server.model;
 
 import java.util.Date;
 
-public class User {
+public class ServerUser {
 	private Long id;
 
 	private String name;
@@ -73,7 +73,7 @@ public class User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		ServerUser other = (ServerUser) obj;
 		if (createTime == null) {
 			if (other.createTime != null)
 				return false;

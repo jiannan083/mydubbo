@@ -8,5 +8,5 @@
 	<dubbo:registry address="zookeeper://180.76.180.175:2181" />
 	<dubbo:protocol name="dubbo" port="20880" />
 
-	<dubbo:service interface="cn.wangjiannan.service.UserService" ref="userService" />
+	<dubbo:service interface="cn.wangjiannan.server.service.ServerUserService" ref="serverUserService" />
  </beans>
