@@ -18,6 +18,11 @@
 			<artifactId>mydubbo-service</artifactId>
 			<version>${dubbo.service.version}</version>
 		</dependency>
+		<dependency>
+		    <groupId>com.github.sgroschupf</groupId>
+		    <artifactId>zkclient</artifactId>
+		    <version>0.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
