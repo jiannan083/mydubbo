@@ -14,6 +14,11 @@ public class UserController {
 	@Autowired
 	private ServerUserService serverUserService;
 
+	@RequestMapping("/login")
+	public String index() {
+		return "login";
+	}
+
 	@RequestMapping("/testDubbo")
 	@ResponseBody
 	public void testDubbo() {
