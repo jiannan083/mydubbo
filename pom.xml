@@ -38,12 +38,12 @@
 			<groupId>org.springframework</groupId>
 			<!-- Core utilities, used by many other Spring modules -->
 			<artifactId>spring-core</artifactId>
-			<exclusions>
+			<!-- <exclusions>
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
-			</exclusions>
+			</exclusions> -->
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -129,23 +129,23 @@
 		<!-- slf4j -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>1.5.8</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.5.8</version>
+			<version>1.7.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.5.8</version>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<version>1.7.5</version>
 		</dependency>
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.14</version>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.0.13</version>
+		</dependency>
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
 		</dependency>
 		<!-- mybatis -->
 		<dependency>
@@ -161,7 +161,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>6.0.3</version>
+			<version>5.1.26</version>
 		</dependency>
 		<!-- dbcp -->
 		<dependency>
@@ -179,6 +179,14 @@
 					<groupId>org.springframework</groupId>
 					<artifactId>spring</artifactId>
 				</exclusion>
+				<!-- <exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion> -->
 			</exclusions>
 		</dependency>
 		<!-- zkclient -->
