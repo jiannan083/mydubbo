@@ -4,4 +4,6 @@ public interface TransService {
 
 	String testTrans();
 
+	void insertUserOrder();
+
 }
