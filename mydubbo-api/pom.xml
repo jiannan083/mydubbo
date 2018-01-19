@@ -9,7 +9,14 @@
 	</parent>
 	<artifactId>mydubbo-api</artifactId>
 	<packaging>jar</packaging>
-	
+
+	<dependencies>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus</artifactId>
+		</dependency>
+	</dependencies>
+
 	<build>
 		<finalName>mydubbo-api</finalName>
 		<plugins>

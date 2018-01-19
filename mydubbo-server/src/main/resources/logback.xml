@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 	<jmxConfigurator />
-    <property name="log_home" value="../logs/mydubbo-server" />
+    <property name="log_home" value="/Users/myMacBookPro/logs/mydubbo-server" />
 	<!-- console -->
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder charset="UTF-8">

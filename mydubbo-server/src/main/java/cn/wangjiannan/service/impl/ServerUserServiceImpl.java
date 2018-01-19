@@ -4,8 +4,8 @@ import java.util.Date;
 
 import org.springframework.stereotype.Service;
 
-import cn.wangjiannan.model.ServerUser;
-import cn.wangjiannan.service.ServerUserService;
+import cn.wangjiannan.mydubbo.model.ServerUser;
+import cn.wangjiannan.mydubbo.service.ServerUserService;
 
 @Service("serverUserService")
 public class ServerUserServiceImpl implements ServerUserService {
