@@ -47,7 +47,7 @@
     <!-- Spring整合Mybatis -->
     <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="typeAliasesPackage" value="cn.wangjiannan.model"/>
+        <property name="typeAliasesPackage" value="cn.wangjiannan.mydubbo.model"/>
         <!-- 自动扫描Mapping.xml文件 -->
         <property name="mapperLocations" value="classpath*:/sqlMapperXml/*.xml"></property>
         <property name="configLocation" value="classpath:xml/mybatis-config.xml"></property>
@@ -84,19 +84,4 @@
     <!-- 事务注解 -->
     <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
     
-    <!-- 事务管理 属性 -->
-    <!-- <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="select*" propagation="REQUIRED" read-only="true" />
-            <tx:method name="delete*" propagation="REQUIRED" rollback-for="Exception" />
-            <tx:method name="update*" propagation="REQUIRED" rollback-for="Exception" />
-            <tx:method name="insert*" propagation="REQUIRED" rollback-for="Exception" />
-            <tx:method name="*" propagation="REQUIRED" />
-        </tx:attributes>
-    </tx:advice> -->
-
-    <!-- 配置切面 -->
-    <!-- <aop:config expose-proxy="true" proxy-target-class="true">
-        <aop:advisor advice-ref="transactionAdvice" pointcut="execution(* cn.wangjiannan.service..*.*(..))"/>
-    </aop:config> -->
 </beans>
