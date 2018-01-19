@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- 1.声明任务bean -->
+    <bean id="myJob01" class="cn.wangjiannan.quartz.MyJob01" />
+    <!-- 2.配置任务作业 -->
+    <bean id="myJob01Detail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
+	    <property name="targetObject" ref="myJob01" />
+	    <property name="targetMethod" value="execute" />
+	    <!-- 是否并行,如果一个job的业务处理发费的时间超过了job的启动的间隔时间（repeatInterval)，这个属性非常有用。
+	    	  如果为false，那么，在这种情况下，当前job还在运行，那么下一个job只能延时运行。如果为true，那么job就会并行运行 -->
+		<property name="concurrent" value="false" />
+	</bean>
+	<!-- 3.配置触发器 -->
+	<bean id="myJob01Trigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="myJob01Detail" />
+		<property name="cronExpression" value="0 0 1 * * ?" />
+	</bean>
+	<!-- 4.添加其他的任务,重复步骤1-3 -->
+	<!-- 5.配置调度器 -->
+	<bean id="schedulerFactoryBean" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<!-- 装载定时器 -->
+			<list>
+				<ref bean="myJob01Trigger" />
+			</list>
+		</property>
+		<!-- SchedulerFactoryBean在初始化后是否马上启动Scheduler，默认为true。如果设置为false，需要手工启动Scheduler -->
+		<!-- <property name="autoStartup"> <value>true</value> </property> -->
+		<!-- <property name="configLocation" value="classpath:quartz.properties" /> -->
+	</bean>
+</beans>

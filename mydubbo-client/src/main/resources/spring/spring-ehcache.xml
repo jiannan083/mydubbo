@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/cache
+       http://www.springframework.org/schema/cache/spring-cache.xsd">
+    <!-- Spring提供的基于的Ehcache实现的缓存管理器,在spring-context-support包中 -->
+    
+    <!-- spring提供EhCacheManagerFactoryBean来简化ehcache cacheManager的创建 -->
+    <bean id="ehcacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+        <property name="configLocation" value="classpath:xml/ehcache.xml"/>
+    </bean>
+    
+    <!-- 声明一个缓存管理器（EhCacheCacheManager）-->
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+        <property name="cacheManager" ref="ehcacheManager"/>
+        <!-- 表示是否事务环绕的，如果true，则如果事务回滚，缓存也回滚，默认false -->
+        <property name="transactionAware" value="true"/>
+    </bean>
+    
+    <!-- 启用缓存注解 -->  
+    <cache:annotation-driven cache-manager="cacheManager" proxy-target-class="true"/>
+</beans>

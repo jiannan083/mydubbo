@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+	
+    <context:property-placeholder location="classpath:application.properties" ignore-unresolvable="true" />
+    
+    <!-- 
+    	aspectj aop启用CGliB代理,定义在哪个文件，就对哪个文件scan的类生效;
+     	自动为spring容器中那些配置@aspectJ切面的bean创建代理，织入切面;
+     	有一个proxy-target-class属性，默认为false，表示使用jdk动态代理织入增强，
+     	当为true时，表示使用CGLib动态代理技术织入增强,不过即使proxy-target-class设置为false,
+     	如果目标类没有声明接口，则spring将自动使用CGLib动态代理。
+    -->
+    <aop:aspectj-autoproxy expose-proxy="true" proxy-target-class="true"/>
+    <!-- 
+    	  扫描配置的base-package包下的所有使用了@Component注解的类，并且将它们自动注册到容器中，
+    	  同时也扫描@Controller，@Service，@Respository这三个注解，因为他们是继承自@Component,
+    	  并默认声明了@Required、@Autowired、 @PostConstruct、@PersistenceContext、@Resource、@PreDestroy等注解.
+    	 Spring容器中注册非@controller注解的Bean. 
+    -->
+	<context:component-scan base-package="cn.wangjiannan">
+	   <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+    
+	<import resource="classpath:spring/spring-mybatis.xml"/>
+    <import resource="classpath:spring/dubbo-client.xml"/>
+    <!-- <import resource="classpath:spring/spring-ehcache.xml"/> -->
+    <!-- <import resource="classpath:spring/spring-redis.xml"/> -->
+    <!-- Spring 异步event需要开启task -->
+    <!-- <import resource="classpath:spring/spring-task.xml"/> -->
+    <!-- <import resource="classpath:spring/spring-shiro.xml"/> -->
+    <!-- <import resource="classpath:spring/spring-quartz-base.xml"/> -->
+    <!-- <import resource="classpath:spring/spring-mq.xml"/> -->
+</beans>  

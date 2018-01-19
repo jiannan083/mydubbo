@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/jms 
+       http://www.springframework.org/schema/jms/spring-jms.xsd">
+       
+	<!-- 1.ActiveMQ 连接工厂,真正可以产生Connection的ConnectionFactory，由对应的 JMS服务厂商提供 -->
+	<bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="${jms.broker_url}" />
+		<!-- <property name="userName" value="${jms.userName}" />
+		<property name="password" value="${jms.password}" /> -->
+		<!-- 对PERSISTENT的消息进行异步发送(NON_PERSISTENT消息默认异步发送) -->
+		<property name="useAsyncSend" value="true" />
+	</bean>
+	
+	<!-- 2.Spring Caching 连接工厂,只是Spring用于管理ConnectionFactory的 -->
+	<bean id="connectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+		<property name="targetConnectionFactory" ref="targetConnectionFactory" />
+		<!-- Session缓存数量 -->
+		<property name="sessionCacheSize" value="10" />
+	</bean>
+	
+	<!-- 3.定义消息生产者 start -->
+	<!-- 3.1.Queue类型 -->
+	<bean id="queueTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="connectionFactory" />
+        <!-- 定义目的地消息队列 -->
+		<property name="defaultDestination" ref="queueDestination" />
+	</bean>
+	<bean id="queueDestination" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="queue_test" />
+	</bean>
+	<!-- 3.2.Topic类型 -->
+    <bean id="topicTemplate" class="org.springframework.jms.core.JmsTemplate">
+         <property name="connectionFactory" ref="connectionFactory" />
+        <!-- 定义目的地消息队列 -->
+        <property name="defaultDestination" ref="topicDestination" />
+    </bean>
+    <bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">
+		<constructor-arg index="0" value="topic_test" />
+	</bean>
+    <!-- 定义消息生产者 end -->
+    
+    <!-- 4.定义消息消费者 start -->
+    <!-- 4.1.定义Queue监听器 -->
+    <jms:listener-container destination-type="queue" container-type="default" connection-factory="connectionFactory" acknowledge="auto">
+        <jms:listener destination="queue_test" ref="queueListener"/>
+    </jms:listener-container>
+    <!-- 4.2.定义Topic监听器 -->
+    <jms:listener-container destination-type="topic" container-type="default" connection-factory="connectionFactory" acknowledge="auto">
+        <jms:listener destination="topic_test" ref="topicListener1"/>
+        <jms:listener destination="topic_test" ref="topicListener2"/>
+    </jms:listener-container>
+    <!-- 定义消息消费者 end -->
+    
+    <!-- 5.消息处理类 -->
+    <bean id="queueListener" class="cn.wangjiannan.manager.listener.QueueListener" />
+    <bean id="topicListener1" class="cn.wangjiannan.manager.listener.TopicListener1" />
+    <bean id="topicListener2" class="cn.wangjiannan.manager.listener.TopicListener2" />
+</beans>
