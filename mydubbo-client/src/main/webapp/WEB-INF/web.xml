@@ -6,7 +6,7 @@
          version="3.1">
     
 	<!-- Web 应用名称：提供GUI工具可能会用来标记这个特定的Web应用的一个名称 -->    
-	<display-name>mydubbo-server</display-name>
+	<display-name>mydubbo-client</display-name>
 	
 	<!-- 针对整个项目,声明应用范围内的初始化参数 -->
 	<context-param>
