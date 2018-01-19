@@ -1,4 +1,4 @@
-package cn.wangjiannan.server.model;
+package cn.wangjiannan.model;
 
 import java.io.Serializable;
 import java.util.Date;

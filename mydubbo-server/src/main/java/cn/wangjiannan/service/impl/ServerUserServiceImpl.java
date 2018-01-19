@@ -1,11 +1,11 @@
-package cn.wangjiannan.server.service.impl;
+package cn.wangjiannan.service.impl;
 
 import java.util.Date;
 
 import org.springframework.stereotype.Service;
 
-import cn.wangjiannan.server.model.ServerUser;
-import cn.wangjiannan.server.service.ServerUserService;
+import cn.wangjiannan.model.ServerUser;
+import cn.wangjiannan.service.ServerUserService;
 
 @Service("serverUserService")
 public class ServerUserServiceImpl implements ServerUserService {
