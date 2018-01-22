@@ -40,7 +40,7 @@
 	<modules>
 		<module>mydubbo-api</module>
 		<module>mydubbo-server</module>
-    <module>mydubbo-client</module>
+    	<module>mydubbo-client</module>
   </modules>
 
 	<!-- 使用aliyun镜像 -->
