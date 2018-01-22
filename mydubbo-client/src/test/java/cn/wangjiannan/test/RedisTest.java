@@ -3,7 +3,7 @@ package cn.wangjiannan.test;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import cn.wangjiannan.model.User;
+import cn.wangjiannan.mydubbo.model.User;
 import cn.wangjiannan.service.TestRedisService;
 import cn.wangjiannan.test.base.BaseTest;
 

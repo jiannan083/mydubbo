@@ -1,4 +1,4 @@
-package cn.wangjiannan.model;
+package cn.wangjiannan.mydubbo.model;
 
 import java.io.Serializable;
 import java.util.Date;

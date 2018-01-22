@@ -3,8 +3,8 @@ package cn.wangjiannan.model.vo;
 import java.util.Date;
 import java.util.List;
 
-import cn.wangjiannan.model.Role;
-import cn.wangjiannan.model.User;
+import cn.wangjiannan.mydubbo.model.Role;
+import cn.wangjiannan.mydubbo.model.User;
 
 /**
  * UserVo

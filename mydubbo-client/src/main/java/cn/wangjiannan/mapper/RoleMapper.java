@@ -5,8 +5,8 @@ import java.util.Map;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
-import cn.wangjiannan.model.Resource;
-import cn.wangjiannan.model.Role;
+import cn.wangjiannan.mydubbo.model.Resource;
+import cn.wangjiannan.mydubbo.model.Role;
 
 public interface RoleMapper extends BaseMapper<Role> {
 

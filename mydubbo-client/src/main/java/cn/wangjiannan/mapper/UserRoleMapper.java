@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Select;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
-import cn.wangjiannan.model.UserRole;
+import cn.wangjiannan.mydubbo.model.UserRole;
 
 public interface UserRoleMapper extends BaseMapper<UserRole> {
 	List<UserRole> selectByUserId(Long userId);

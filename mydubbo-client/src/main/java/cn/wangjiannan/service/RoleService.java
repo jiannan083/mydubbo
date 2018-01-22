@@ -5,7 +5,7 @@ import java.util.Set;
 
 import com.baomidou.mybatisplus.service.IService;
 
-import cn.wangjiannan.model.Role;
+import cn.wangjiannan.mydubbo.model.Role;
 
 public interface RoleService extends IService<Role> {
 	Object selectTree();

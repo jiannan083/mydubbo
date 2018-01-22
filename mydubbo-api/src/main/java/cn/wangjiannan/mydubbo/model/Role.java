@@ -1,8 +1,6 @@
-package cn.wangjiannan.model;
+package cn.wangjiannan.mydubbo.model;
 
 import java.io.Serializable;
-
-import org.hibernate.validator.constraints.NotBlank;
 
 /**
  * 角色
@@ -18,7 +16,7 @@ public class Role implements Serializable {
 	private Long id;
 
 	/** 角色名 */
-	@NotBlank
+	// @NotBlank
 	private String name;
 
 	/** 排序号 */

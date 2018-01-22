@@ -16,8 +16,8 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import cn.wangjiannan.common.util.StringUtils;
 import cn.wangjiannan.mapper.RoleMapper;
 import cn.wangjiannan.mapper.UserRoleMapper;
-import cn.wangjiannan.model.Role;
 import cn.wangjiannan.model.vo.TreeVo;
+import cn.wangjiannan.mydubbo.model.Role;
 import cn.wangjiannan.service.RoleService;
 
 @Service

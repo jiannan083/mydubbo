@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import cn.wangjiannan.mapper.UserRoleMapper;
-import cn.wangjiannan.model.UserRole;
+import cn.wangjiannan.mydubbo.model.UserRole;
 import cn.wangjiannan.service.UserRoleService;
 import cn.wangjiannan.test.base.BaseTest;
 

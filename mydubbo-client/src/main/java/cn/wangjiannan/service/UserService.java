@@ -5,9 +5,9 @@ import java.util.Map;
 
 import com.baomidou.mybatisplus.service.IService;
 
-import cn.wangjiannan.model.User;
 import cn.wangjiannan.model.vo.PageVo;
 import cn.wangjiannan.model.vo.UserVo;
+import cn.wangjiannan.mydubbo.model.User;
 
 public interface UserService extends IService<User> {
 

@@ -14,8 +14,8 @@ import cn.wangjiannan.common.shiro.ShiroUser;
 import cn.wangjiannan.mapper.ResourceMapper;
 import cn.wangjiannan.mapper.RoleMapper;
 import cn.wangjiannan.mapper.UserRoleMapper;
-import cn.wangjiannan.model.Resource;
 import cn.wangjiannan.model.vo.TreeVo;
+import cn.wangjiannan.mydubbo.model.Resource;
 import cn.wangjiannan.service.ResourceService;
 
 @Service

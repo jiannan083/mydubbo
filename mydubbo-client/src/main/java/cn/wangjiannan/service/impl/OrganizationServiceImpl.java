@@ -10,8 +10,8 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 
 import cn.wangjiannan.mapper.OrganizationMapper;
-import cn.wangjiannan.model.Organization;
 import cn.wangjiannan.model.vo.TreeVo;
+import cn.wangjiannan.mydubbo.model.Organization;
 import cn.wangjiannan.service.OrganizationService;
 
 @Service

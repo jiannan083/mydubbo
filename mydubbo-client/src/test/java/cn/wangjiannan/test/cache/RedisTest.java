@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
 import org.springframework.data.redis.cache.RedisCacheManager;
 
-import cn.wangjiannan.model.User;
+import cn.wangjiannan.mydubbo.model.User;
 import cn.wangjiannan.test.base.BaseTest;
 
 public class RedisTest extends BaseTest {

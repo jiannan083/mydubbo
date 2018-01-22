@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 
 import cn.wangjiannan.mapper.SysLogMapper;
-import cn.wangjiannan.model.SysLog;
+import cn.wangjiannan.mydubbo.model.SysLog;
 import cn.wangjiannan.service.SysLogService;
 
 @Service

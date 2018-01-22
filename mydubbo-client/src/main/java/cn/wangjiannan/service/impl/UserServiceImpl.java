@@ -13,10 +13,10 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 
 import cn.wangjiannan.mapper.UserMapper;
 import cn.wangjiannan.mapper.UserRoleMapper;
-import cn.wangjiannan.model.User;
-import cn.wangjiannan.model.UserRole;
 import cn.wangjiannan.model.vo.PageVo;
 import cn.wangjiannan.model.vo.UserVo;
+import cn.wangjiannan.mydubbo.model.User;
+import cn.wangjiannan.mydubbo.model.UserRole;
 import cn.wangjiannan.service.UserService;
 
 @Service

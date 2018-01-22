@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 
 import cn.wangjiannan.mapper.UserRoleMapper;
-import cn.wangjiannan.model.UserRole;
+import cn.wangjiannan.mydubbo.model.UserRole;
 import cn.wangjiannan.service.UserRoleService;
 
 @Service

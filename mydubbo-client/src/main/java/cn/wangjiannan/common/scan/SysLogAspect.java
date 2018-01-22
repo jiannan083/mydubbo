@@ -20,7 +20,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import cn.wangjiannan.common.util.StringUtils;
-import cn.wangjiannan.model.SysLog;
+import cn.wangjiannan.mydubbo.model.SysLog;
 import cn.wangjiannan.service.SysLogService;
 
 /**

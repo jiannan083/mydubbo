@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.baomidou.mybatisplus.service.IService;
 
-import cn.wangjiannan.model.Organization;
 import cn.wangjiannan.model.vo.TreeVo;
+import cn.wangjiannan.mydubbo.model.Organization;
 
 public interface OrganizationService extends IService<Organization> {
 	List<TreeVo> selectTree();

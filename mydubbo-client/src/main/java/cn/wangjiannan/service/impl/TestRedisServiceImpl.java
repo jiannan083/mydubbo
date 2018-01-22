@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 
 import cn.wangjiannan.mapper.UserMapper;
-import cn.wangjiannan.model.User;
+import cn.wangjiannan.mydubbo.model.User;
 import cn.wangjiannan.service.TestRedisService;
 
 @Service

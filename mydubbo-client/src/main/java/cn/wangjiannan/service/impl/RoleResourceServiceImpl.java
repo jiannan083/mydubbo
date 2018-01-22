@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 
 import cn.wangjiannan.mapper.RoleResourceMapper;
-import cn.wangjiannan.model.RoleResource;
+import cn.wangjiannan.mydubbo.model.RoleResource;
 import cn.wangjiannan.service.RoleResourceService;
 
 @Service

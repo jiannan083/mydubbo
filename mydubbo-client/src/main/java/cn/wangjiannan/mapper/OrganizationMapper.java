@@ -2,7 +2,7 @@ package cn.wangjiannan.mapper;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
-import cn.wangjiannan.model.Organization;
+import cn.wangjiannan.mydubbo.model.Organization;
 
 /**
  *

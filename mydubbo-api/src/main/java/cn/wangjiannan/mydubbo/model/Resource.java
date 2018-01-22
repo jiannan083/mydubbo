@@ -1,11 +1,7 @@
-package cn.wangjiannan.model;
+package cn.wangjiannan.mydubbo.model;
 
 import java.io.Serializable;
 import java.util.Date;
-
-import org.hibernate.validator.constraints.NotBlank;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  *
@@ -20,7 +16,6 @@ public class Resource implements Serializable {
 	private Long id;
 
 	/** 资源名称 */
-	@NotBlank
 	private String name;
 
 	/** 资源路径 */
@@ -33,7 +28,7 @@ public class Resource implements Serializable {
 	private String description;
 
 	/** 资源图标 */
-	@JsonProperty("iconCls")
+	// @JsonProperty("iconCls")
 	private String icon;
 
 	/** 父级资源id */
