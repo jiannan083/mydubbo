@@ -19,8 +19,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import cn.wangjiannan.api.model.SysLog;
 import cn.wangjiannan.common.util.StringUtils;
-import cn.wangjiannan.mydubbo.model.SysLog;
 import cn.wangjiannan.service.SysLogService;
 
 /**

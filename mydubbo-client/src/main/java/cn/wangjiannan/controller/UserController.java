@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.wangjiannan.api.model.User;
 import cn.wangjiannan.common.base.BaseController;
 import cn.wangjiannan.common.shiro.PasswordHash;
 import cn.wangjiannan.common.util.StringUtils;
 import cn.wangjiannan.model.vo.PageVo;
 import cn.wangjiannan.model.vo.UserVo;
-import cn.wangjiannan.mydubbo.model.User;
 import cn.wangjiannan.service.UserService;
 
 @Controller

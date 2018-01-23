@@ -20,8 +20,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import cn.wangjiannan.api.model.User;
 import cn.wangjiannan.model.vo.UserVo;
-import cn.wangjiannan.mydubbo.model.User;
 import cn.wangjiannan.service.RoleService;
 import cn.wangjiannan.service.UserService;
 

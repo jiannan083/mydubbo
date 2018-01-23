@@ -1,4 +1,4 @@
-package cn.wangjiannan.model.vo;
+package cn.wangjiannan.api.model.vo;
 
 import java.util.Date;
 import java.util.List;
