@@ -7,7 +7,7 @@
     <description>Shiro安全配置</description>
     
     <!-- 配置缓存方案 -->
-    <bean id="shiroCacheManager" class="cn.wangjiannan.common.shiro.cache.ShiroCacheManager">
+    <bean id="shiroCacheManager" class="cn.wangjiannan.client.common.shiro.cache.ShiroCacheManager">
         <property name="cacheManager" ref="cacheManager"/>
     </bean>
     
@@ -41,20 +41,20 @@
     </bean>
     
     <!-- shiro密码加密配置 -->
-    <bean id="passwordHash" class="cn.wangjiannan.common.shiro.PasswordHash">
+    <bean id="passwordHash" class="cn.wangjiannan.client.common.shiro.PasswordHash">
         <!-- 密码加密 1次md5,增强密码可修改此处 -->
         <property name="algorithmName" value="md5"/>
         <property name="hashIterations" value="1"/>
     </bean>
     <!-- 密码错误5次锁定半小时 -->
-    <bean id="credentialsMatcher" class="cn.wangjiannan.common.shiro.RetryLimitCredentialsMatcher">
+    <bean id="credentialsMatcher" class="cn.wangjiannan.client.common.shiro.RetryLimitCredentialsMatcher">
         <constructor-arg ref="shiroCacheManager"/>
         <!-- <property name="retryLimitCacheName" value="halfHour"/> -->
         <property name="passwordHash" ref="passwordHash"/>
     </bean>
     
     <!-- 項目自定义的Realm -->
-    <bean id="shiroDbRealm" class="cn.wangjiannan.common.shiro.ShiroDbRealm">
+    <bean id="shiroDbRealm" class="cn.wangjiannan.client.common.shiro.ShiroDbRealm">
     	<!-- constructor-arg：通过ShiroDbRealm构造函数注入 -->
     	<!-- 构造函数第一个参数,参数名cacheManager -->
         <constructor-arg index="0" name="cacheManager" ref="shiroCacheManager"/>
@@ -133,7 +133,7 @@
     </bean> -->
     
     <!-- 验证码 -->
-    <bean class="cn.wangjiannan.common.shiro.captcha.DreamCaptcha">
+    <bean class="cn.wangjiannan.client.common.shiro.captcha.DreamCaptcha">
         <property name="cacheManager" ref="shiroCacheManager"/>
     </bean>
     

@@ -19,7 +19,7 @@ import cn.wangjiannan.api.service.UserService;
 import cn.wangjiannan.server.mapper.UserMapper;
 import cn.wangjiannan.server.mapper.UserRoleMapper;
 
-@Service
+@Service("userService")
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 	@Autowired
 	private UserMapper userMapper;

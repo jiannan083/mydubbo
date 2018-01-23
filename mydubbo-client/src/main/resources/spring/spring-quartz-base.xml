@@ -8,7 +8,7 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
     
     <!-- 1.声明任务bean -->
-    <bean id="myJob01" class="cn.wangjiannan.quartz.MyJob01" />
+    <bean id="myJob01" class="cn.wangjiannan.client.quartz.MyJob01" />
     <!-- 2.配置任务作业 -->
     <bean id="myJob01Detail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
 	    <property name="targetObject" ref="myJob01" />

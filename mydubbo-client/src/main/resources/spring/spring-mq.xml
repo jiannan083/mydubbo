@@ -57,7 +57,7 @@
     <!-- 定义消息消费者 end -->
     
     <!-- 5.消息处理类 -->
-    <bean id="queueListener" class="cn.wangjiannan.manager.listener.QueueListener" />
-    <bean id="topicListener1" class="cn.wangjiannan.manager.listener.TopicListener1" />
-    <bean id="topicListener2" class="cn.wangjiannan.manager.listener.TopicListener2" />
+    <bean id="queueListener" class="cn.wangjiannan.client.manager.listener.QueueListener" />
+    <bean id="topicListener1" class="cn.wangjiannan.client.manager.listener.TopicListener1" />
+    <bean id="topicListener2" class="cn.wangjiannan.client.manager.listener.TopicListener2" />
 </beans>
