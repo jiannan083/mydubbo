@@ -20,7 +20,7 @@ import cn.wangjiannan.server.common.util.StringUtils;
 import cn.wangjiannan.server.mapper.RoleMapper;
 import cn.wangjiannan.server.mapper.UserRoleMapper;
 
-@Service
+@Service("roleService")
 public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements RoleService {
 
 	@Autowired

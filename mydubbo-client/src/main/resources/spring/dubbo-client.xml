@@ -13,5 +13,6 @@
     <dubbo:registry id="noticeRegistry" address="zookeeper://180.76.180.175:2181" />
 	
 	<dubbo:reference registry="noticeRegistry" id="dubboUserService" interface="cn.wangjiannan.api.service.UserService" check="false"/>
+	<dubbo:reference registry="noticeRegistry" id="dubboRoleService" interface="cn.wangjiannan.api.service.RoleService" check="false"/>
 	
  </beans>

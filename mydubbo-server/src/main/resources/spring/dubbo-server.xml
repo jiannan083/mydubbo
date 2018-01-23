@@ -16,4 +16,10 @@
 
 	<!-- timeout:毫秒 -->
 	<dubbo:service interface="cn.wangjiannan.api.service.UserService" ref="userService" timeout="30000"/>
+	<dubbo:service interface="cn.wangjiannan.api.service.RoleService" ref="roleService" timeout="30000"/>
+	<!-- <dubbo:service interface="cn.wangjiannan.api.service.UserService" ref="userService" timeout="30000"/>
+	<dubbo:service interface="cn.wangjiannan.api.service.UserService" ref="userService" timeout="30000"/>
+	<dubbo:service interface="cn.wangjiannan.api.service.UserService" ref="userService" timeout="30000"/>
+	<dubbo:service interface="cn.wangjiannan.api.service.UserService" ref="userService" timeout="30000"/>
+	<dubbo:service interface="cn.wangjiannan.api.service.UserService" ref="userService" timeout="30000"/> -->
  </beans>
