@@ -7,12 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import cn.wangjiannan.api.model.User;
 import cn.wangjiannan.api.model.vo.UserVo;
+import cn.wangjiannan.api.service.RoleService;
 import cn.wangjiannan.api.service.UserService;
 import cn.wangjiannan.base.BaseTest;
 
 public class UserTest extends BaseTest {
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private RoleService roleService;
 
 	// @Test
 	// public void testUser() {
@@ -39,5 +42,7 @@ public class UserTest extends BaseTest {
 		// userVo.setId(1L);
 		List<User> list = userService.selectByLoginName(user);
 		logger.info("-----" + list.get(0).toString());
+
+		logger.info("-----" + roleService.selectResourceMapByUserId(1L));
 	}
 }

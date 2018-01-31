@@ -17,5 +17,5 @@ public interface UserService extends IService<User> {
 
 	void insertByUserVo(UserVo userVo);
 
-	// void selectUserPage(PageVo<User> pageVo);
+	void selectUserPage(PageVo<User> pageVo);
 }

@@ -19,7 +19,7 @@ import cn.wangjiannan.api.service.UserService;
 import cn.wangjiannan.server.mapper.UserMapper;
 import cn.wangjiannan.server.mapper.UserRoleMapper;
 
-@Service("userService")
+@Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 	@Autowired
 	private UserMapper userMapper;
@@ -72,22 +72,22 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 		}
 	}
 
-	// @Override
-	// public void selectUserPage(PageVo<User> pageVo) {
-	// Page<User> page = new Page<>(pageVo.getNowpage(), pageVo.getPagesize());
-	// EntityWrapper<User> wrapper = new EntityWrapper<User>();
-	// wrapper.orderBy(pageVo.getSort(), pageVo.getOrder().equalsIgnoreCase("ASC"));
-	// selectPage(page, wrapper);
-	// pageVo.setRows(page.getRecords());
-	// pageVo.setTotal(page.getTotal());
-	//
-	// // Page<User> page = new Page<>(pageVo.getNowpage(), pageVo.getPagesize());
-	// // page.setOrderByField(pageVo.getSort());
-	// // page.setAsc(pageVo.getOrder().equalsIgnoreCase("asc"));
-	// // System.out.println("---------" + page.toString());
-	// // userMapper.selectUserPage(page, pageVo.getCondition());
-	// // pageVo.setRows(page.getRecords());
-	// // pageVo.setTotal(page.getTotal());
-	// }
+	@Override
+	public void selectUserPage(PageVo<User> pageVo) {
+		Page<User> page = new Page<>(pageVo.getNowpage(), pageVo.getPagesize());
+		EntityWrapper<User> wrapper = new EntityWrapper<User>();
+		wrapper.orderBy(pageVo.getSort(), pageVo.getOrder().equalsIgnoreCase("ASC"));
+		selectPage(page, wrapper);
+		pageVo.setRows(page.getRecords());
+		pageVo.setTotal(page.getTotal());
+
+		// Page<User> page = new Page<>(pageVo.getNowpage(), pageVo.getPagesize());
+		// page.setOrderByField(pageVo.getSort());
+		// page.setAsc(pageVo.getOrder().equalsIgnoreCase("asc"));
+		// System.out.println("---------" + page.toString());
+		// userMapper.selectUserPage(page, pageVo.getCondition());
+		// pageVo.setRows(page.getRecords());
+		// pageVo.setTotal(page.getTotal());
+	}
 
 }

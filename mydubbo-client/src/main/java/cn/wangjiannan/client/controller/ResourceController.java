@@ -2,8 +2,11 @@ package cn.wangjiannan.client.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.wangjiannan.api.model.ShiroUser;
 import cn.wangjiannan.api.service.ResourceService;
 import cn.wangjiannan.client.common.base.BaseController;
 
@@ -19,10 +22,10 @@ public class ResourceController extends BaseController {
 	 *
 	 * @return
 	 */
-	// @PostMapping("/tree")
-	// @ResponseBody
-	// public Object tree() {
-	// ShiroUser shiroUser = getShiroUser();
-	// return resourceService.selectTree(shiroUser);
-	// }
+	@PostMapping("/tree")
+	@ResponseBody
+	public Object tree() {
+		ShiroUser shiroUser = getShiroUser();
+		return resourceService.selectTree(shiroUser);
+	}
 }

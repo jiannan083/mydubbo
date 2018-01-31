@@ -1,7 +1,7 @@
 /**
  *
  */
-package cn.wangjiannan.client.common.shiro;
+package cn.wangjiannan.api.model;
 
 import java.io.Serializable;
 import java.util.Set;

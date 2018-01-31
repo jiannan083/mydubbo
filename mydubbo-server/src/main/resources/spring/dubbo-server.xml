@@ -10,16 +10,29 @@
     <!-- 注册dubbo服务的应用名称 -->
 	<dubbo:application name="mydubbo-server" />
 	<!-- 配置zookeeper注册中心的服务地址 -->
-	<dubbo:registry address="zookeeper://180.76.180.175:2181" check="false" />
+	<dubbo:registry address="zookeeper://180.76.180.175:2181" />
 	<!-- 配置端口 -->
 	<dubbo:protocol name="dubbo" port="20880" />
 
 	<!-- timeout:毫秒 -->
-	<dubbo:service interface="cn.wangjiannan.api.service.UserService" ref="userService" timeout="30000"/>
-	<dubbo:service interface="cn.wangjiannan.api.service.RoleService" ref="roleService" timeout="30000"/>
-	<!-- <dubbo:service interface="cn.wangjiannan.api.service.UserService" ref="userService" timeout="30000"/>
-	<dubbo:service interface="cn.wangjiannan.api.service.UserService" ref="userService" timeout="30000"/>
-	<dubbo:service interface="cn.wangjiannan.api.service.UserService" ref="userService" timeout="30000"/>
-	<dubbo:service interface="cn.wangjiannan.api.service.UserService" ref="userService" timeout="30000"/>
-	<dubbo:service interface="cn.wangjiannan.api.service.UserService" ref="userService" timeout="30000"/> -->
+	<dubbo:service interface="cn.wangjiannan.api.service.OrganizationService" ref="organizationService"/>
+	<bean id="organizationService" class="cn.wangjiannan.server.service.impl.OrganizationServiceImpl" />
+	
+	<dubbo:service interface="cn.wangjiannan.api.service.ResourceService" ref="resourceService"/>
+	<bean id="resourceService" class="cn.wangjiannan.server.service.impl.ResourceServiceImpl" />
+	
+	<dubbo:service interface="cn.wangjiannan.api.service.RoleResourceService" ref="roleResourceService"/>
+	<bean id="roleResourceService" class="cn.wangjiannan.server.service.impl.RoleResourceServiceImpl" />
+	
+	<dubbo:service interface="cn.wangjiannan.api.service.RoleService" ref="roleService"/>
+	<bean id="roleService" class="cn.wangjiannan.server.service.impl.RoleServiceImpl" />
+	
+	<dubbo:service interface="cn.wangjiannan.api.service.TestRedisService" ref="testRedisService"/>
+	<bean id="testRedisService" class="cn.wangjiannan.server.service.impl.TestRedisServiceImpl" />
+	
+	<dubbo:service interface="cn.wangjiannan.api.service.UserRoleService" ref="userRoleService"/>
+	<bean id="userRoleService" class="cn.wangjiannan.server.service.impl.UserRoleServiceImpl" />
+	
+	<dubbo:service interface="cn.wangjiannan.api.service.UserService" ref="userService"/>
+	<bean id="userService" class="cn.wangjiannan.server.service.impl.UserServiceImpl" />
  </beans>

@@ -20,6 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import cn.wangjiannan.api.model.ShiroUser;
 import cn.wangjiannan.api.model.User;
 import cn.wangjiannan.api.model.vo.UserVo;
 import cn.wangjiannan.api.service.RoleService;
